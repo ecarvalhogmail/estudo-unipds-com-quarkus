@@ -14,6 +14,8 @@ import java.time.temporal.ChronoUnit;
 @RegisterRestClient(baseUri = "https://swapi.info/api/")
 public interface StarWarsServices {
 
+    public static final String MSG_ERROR ="Fallback";
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("starships")
@@ -30,6 +32,7 @@ public interface StarWarsServices {
     public String getStarships();
 
     default String getStarShipsFallback() {
-        return "Fallback";
+
+        return MSG_ERROR;
     }
 }
